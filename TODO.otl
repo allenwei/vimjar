@@ -1,0 +1,21 @@
+Cli
+	Init 
+		init git in .vim
+		init pathogen plugin
+		init var-jar config
+	Install 
+		plugin
+			source type
+				git
+				vim.org
+					file type 
+						folder 
+						tar.gz
+						.vim
+		theme 
+			preview
+	Uninstall
+	Upgrade vim-jar
+	Update plugin
+
+
