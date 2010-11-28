@@ -11,6 +11,8 @@ opt = OptionParser.new do |opts|
   opts.separator "    init -- init environment"
   opts.separator "    install NAME -- install plugin"
   opts.separator "    list -- list all avaliable plugins"
+  opts.separator "    import -- import plugin info from github.com"
+  opts.separator "      vim-jar import https://github.com/vim-scripts/ZenCoding.vim"
   opts.separator ""
 end
 
@@ -44,6 +46,13 @@ when "install"
   end
 when "list" 
   Vim::Jar::Cli.list
+when "import"
+  if github_url = ARGV[1]
+    Vim::Jar::Cli.import(github_url)
+  else
+    print_error "github repository url"
+    exit 1
+  end 
 else 
   print_error "missing command"
   puts opt

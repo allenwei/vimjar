@@ -10,7 +10,38 @@ module Vim
       end
 
       def self.plugins
-        @plugins ||= YAML.load_file(config.yaml_path)
+        return @plugins if @plugins
+        if !File.exist? config.yaml_path
+          FileUtils.touch config.yaml_path
+          @plugins = []
+        else 
+         @plugins = YAML.load_file(config.yaml_path)  || []
+        end
+        @plugins
+      end
+
+      def self.exist? name 
+        #OPTIMIZE
+        @exist_list ||= {}
+        return @exist_list[name] if @exist_list.has_key? name
+        result = self.plugins.any? {|p| p["name"].strip.downcase == name.strip.downcase} 
+        @exist_list[name] = result
+        result
+      end
+
+      def self.insert(attrs) 
+        #OPTIMIZE
+        if self.exist? attrs["name"]
+          return false
+        else 
+          self.plugins << attrs
+          return true
+        end
+      end
+
+      def self.reset 
+        self.instance_variable_set("@plugins", nil)
+        self.plugins
       end
 
       def self.config 

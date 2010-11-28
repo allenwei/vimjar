@@ -2,16 +2,29 @@ require 'spec_helper'
 
 describe Vim::Jar::Plugin do 
   before(:each) do 
-    stub(Vim::Jar::Plugin.config).yaml_path  { File.expand_path("./plugins.yaml",File.dirname(__FILE__)) }
+    stub(Vim::Jar::Plugin.config).yaml_path  { File.expand_path("./plugin_ymls/rails-vim.yml",File.dirname(__FILE__)) }
   end
+
   context ".plugins" do 
-    it "should contain vim-rails in plugins.yaml" do 
-      Vim::Jar::Plugin.plugins.should include({"name" => "vim-rails", "desc" => "Ruby on Rails, easy file navigation, enhanced syntax highlighting, and more", "url" => "git://github.com/tpope/vim-rails.git", "type" => "git"})
+    it "should contain vim-rails in rails-vim.yml" do 
+      Vim::Jar::Plugin.plugins.should include({"name" => "vim-rails", "desc" => "rails.vim: Ruby on Rails power tools", "url" => "git://github.com/tpope/vim-rails.git", "type" => "git", "homepage" => "https://github.com/tpope/vim-rails" })
+    end
+  end
+
+  context ".exist" do 
+    it "should be true if has plugin in @plugins" do 
+     Vim::Jar::Plugin.plugins << {"name" => "test" } 
+     Vim::Jar::Plugin.exist?("test").should be_true
+     Vim::Jar::Plugin.exist?("TEST ").should be_true
+    end
+
+    it "should be true if there in no plugin in @plugins" do 
+     Vim::Jar::Plugin.exist?("testasdasdasdasdas").should be_false
     end
   end
 
   context ".find" do 
-    it "should find vim-rails in plugins.yaml" do 
+    it "should find vim-rails in rails-vim.yml" do 
       Vim::Jar::Plugin.find("vim-rails").should_not be_nil
       Vim::Jar::Plugin.find("abcde").should be_nil
     end

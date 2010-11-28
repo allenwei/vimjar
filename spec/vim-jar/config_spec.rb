@@ -64,7 +64,7 @@ describe Vim::Jar::Config do
 
   context ".yaml_path" do 
     it "should be lib/vim-jar/plugins.yml" do 
-      config.yaml_path.should == File.expand_path("../../lib/vim-jar/plugins.yaml",File.dirname(__FILE__))
+      config.yaml_path.should == File.expand_path("../../lib/vim-jar/plugins.yml",File.dirname(__FILE__))
     end
   end
 end

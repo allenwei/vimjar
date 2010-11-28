@@ -28,6 +28,15 @@ module Vim
           end
         end
 
+        def import(github_url)
+          begin 
+            ::Vim::Jar::Importer.import(github_url)
+            STDOUT.puts "'#{github_url}' has import to our local cache"
+          rescue ImportError => e 
+            STDERR.puts "Can not import '#{github_url}', because #{e.message}"
+          end
+        end
+
         private 
 
         def config 

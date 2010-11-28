@@ -1,5 +1,0 @@
-- name: vim-rails  
-  desc: Ruby on Rails, easy file navigation, enhanced syntax highlighting, and more
-  url: git://github.com/tpope/vim-rails.git
-  type: git
-

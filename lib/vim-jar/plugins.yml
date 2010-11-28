@@ -1,4 +1,11 @@
-- name: vim-rails  
-  desc: Ruby on Rails, easy file navigation, enhanced syntax highlighting, and more
+--- 
+- name: vim-rails
   url: git://github.com/tpope/vim-rails.git
   type: git
+  homepage: https://github.com/tpope/vim-rails
+  desc: Ruby on Rails, easy file navigation, enhanced syntax highlighting, and more
+- name: stackoverflow.vim
+  url: git://github.com/vim-scripts/stackoverflow.vim.git
+  type: git
+  homepage: https://github.com/vim-scripts/stackoverflow.vim
+  desc: Stackoverflow&amp;#039s code highlights (gui)
