@@ -23,9 +23,10 @@ module Vim
         end
 
         def list(options={}) 
-          STDOUT.puts ::Vim::Jar::Plugin.plugins.map do |plugin_attr| 
-            "#{plugin_attr['name']}:  #{plugin_attr['desc']}"
+          str = ::Vim::Jar::Plugin.plugins.map do |plugin_attr| 
+            "#{plugin_attr['name']}: #{plugin_attr['desc']}"
           end.join("\n")
+          STDOUT.puts str
         end
 
         def import(github_url)
