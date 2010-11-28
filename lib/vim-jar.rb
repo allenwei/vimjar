@@ -1,9 +1,7 @@
 require 'pathname'
 require 'fileutils'
 require 'yaml'
-require 'net/http'
-require 'net/https'
-require 'uri'
+require 'curb'
 
 module Vim
   module Jar

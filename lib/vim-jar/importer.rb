@@ -33,12 +33,9 @@ module Vim
       end
 
       def self.get_page_source(url) 
-        url = URI.parse(url)
-        http = Net::HTTP.new(url.host, 443)
-        http.use_ssl = true
-        http.get(url.path) do |resp| 
-          return resp
-        end
+        c = ::Curl::Easy.perform(url)
+        return c.body_str
+        
       end
 
       def self.config 
