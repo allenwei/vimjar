@@ -1,12 +1,12 @@
 Cli
 	Init 
-		init git in .vim
-		init pathogen plugin
+		init git in .vim [DONE]
+		init pathogen plugin [DONE]
 		init var-jar config
 	Install 
 		plugin
 			source type
-				git
+				git [DONE]
 				vim.org
 					file type 
 						folder 
@@ -17,5 +17,12 @@ Cli
 	Uninstall
 	Upgrade vim-jar
 	Update plugin
-
-
+	Show
+	Open plugin website
+	list plugins  [DONE]
+	list themes
+	Import
+		From github [DONE]
+		From vim.org
+	Use sqlite
+	Crawl plugin from github [DONE]
