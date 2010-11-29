@@ -39,6 +39,10 @@ module Vim
         end
       end
 
+      def installed
+        @installed ||= Dir[config.bundle_home.join("*")].map { |bundle_path| File.basename(bundle_path)}
+      end
+
       def self.reset 
         self.instance_variable_set("@plugins", nil)
         self.plugins

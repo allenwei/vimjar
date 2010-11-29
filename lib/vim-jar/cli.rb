@@ -38,8 +38,11 @@ module Vim
           end
         end
 
-        private 
+        def installed
+          STDOUT.puts ::Vim::Jar::Plugin.installed.join("\n")
+        end
 
+        private 
         def config 
           @config ||= Vim::Jar.config
         end
