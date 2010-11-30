@@ -20,6 +20,14 @@ module Vim
         @under_git ||= File.exist?(vim_home.join(".git"))
       end
 
+      def gitmodules_file_path
+        vim_home.join(".gitmodules")
+      end
+
+      def gitconfig_file_path
+        vim_home.join(".git",'config')
+      end
+
       def bundle_home 
         Pathname.new(vim_home.join("bundle"))
       end
@@ -35,6 +43,7 @@ module Vim
       def yaml_path
         @yaml_path ||= File.expand_path("./plugins.yml",File.dirname(__FILE__))
       end
+
 
       def check 
         %w[vim_home vimrc_path].each do |method_name|

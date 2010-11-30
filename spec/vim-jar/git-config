@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+	url = git@github.com:allenwei/vim-config.git
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+[submodule "bundle/vim-rails"]
+	url = git://github.com/tpope/vim-rails.git
+[submodule "bundle/VimClojure"]
+	url = git://github.com/vim-scripts/VimClojure.git

@@ -1,27 +1,5 @@
 #!/usr/bin/env ruby 
 
-require 'optparse'
-
-options = {}
-
-opt = OptionParser.new do |opts|
-  opts.banner  = "Usage: vim-jar [command] options" 
-  opts.separator ""
-  opts.separator "  Commands:"
-  opts.separator "    init -- init environment"
-  opts.separator "    install NAME -- install plugin"
-  opts.separator "    list -- list all avaliable plugins"
-  opts.separator "    installed -- list all installed plugins"
-  opts.separator "    import -- import plugin info from github.com"
-  opts.separator "              e.g: vim-jar import https://github.com/vim-scripts/ZenCoding.vim"
-  opts.on("-h", "--help") do 
-    STDOUT.puts opt
-    exit 0
-  end
-end
-
-opt.parse!
-
 if ENV['VIM_JAR_TEST']
   $:.unshift File.expand_path("./../lib", File.dirname(__FILE__)) #TODO remove me before release
   require 'rubygems'
@@ -29,40 +7,6 @@ end
 
 require 'vim-jar/cli'
 
-if ARGV.first.nil? 
-  puts opt
-  exit 0
-end
-
-def print_error(msg)
-  STDERR.puts msg
-end
-
-case ARGV.first 
-when "init"
-  Vim::Jar::Cli.init
-when "install" 
-  if plugin_name = ARGV[1]
-    Vim::Jar::Cli.install(plugin_name)
-  else
-    print_error "missing plugin name"
-    exit 1
-  end
-when "list" 
-  Vim::Jar::Cli.list
-when "import"
-  if github_url = ARGV[1]
-    Vim::Jar::Cli.import(github_url)
-  else
-    print_error "github repository url"
-    exit 1
-  end 
-when "installed"
-  ::Vim::Jar::Cli.installed
-else 
-  print_error "missing command"
-  puts opt
-  exit 0
-end
+Vim::Jar::Cli.start
 
 

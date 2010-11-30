@@ -2,6 +2,7 @@ require 'pathname'
 require 'fileutils'
 require 'yaml'
 require 'curb'
+require 'thor'
 
 module Vim
   module Jar

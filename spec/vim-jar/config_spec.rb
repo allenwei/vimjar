@@ -49,6 +49,23 @@ describe Vim::Jar::Config do
     end
   end
 
+  context ".gitmodules_file_path" do 
+    it "should be in .vim/.gitmodules" do 
+      path = Pathname.new(".")
+      mock(config).vim_home { path }
+      config.gitmodules_file_path.to_s.should == path.join(".gitmodules").to_s
+    end
+  end
+
+  context ".gitconfig_file_path" do
+    it "should be in .vim/.git/config" do
+      path = Pathname.new(".")
+      mock(config).vim_home  { path }
+      config.gitconfig_file_path.to_s.should == path.join(".git/config").to_s
+    end
+  end
+
+
   context ".check" do 
     it "should raise exception if folder check not pass" do 
       mock(File).exist?(anything) { false }
