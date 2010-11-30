@@ -56,6 +56,7 @@ module Vim
       end
 
       def self.remove_ref_from_gitmodules(name)
+        #TODO bundle name is different to submodule name
         f     = File.new(config.gitmodules_file_path)
         lines = f.lines.to_a
         lines.delete_if do |x|
@@ -72,6 +73,7 @@ module Vim
       end
 
       def self.remove_ref_from_git_config(name)
+        #TODO bundle name is different to submodule name
         f     = File.new(config.gitconfig_file_path)
         lines = f.lines.to_a
         lines.delete_if do |x|
