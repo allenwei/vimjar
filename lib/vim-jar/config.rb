@@ -4,8 +4,18 @@ module Vim
       require 'singleton'
       include Singleton
       
+      PATHOGEN_URL = "http://www.vim.org/scripts/download_script.php?src_id=12116"
+
+      def vim_jar_root 
+        Pathname.new(File.expand_path("../../",File.dirname(__FILE__)))
+      end
+
+      def vim_jar_lib 
+        Pathname.new(vim_jar_root.join("lib"))
+      end
+
       def user_home 
-        Pathname.new(::Gem.user_home)
+        Pathname.new(ENV['VIM_JAR_USER_HOME'] || ::Gem.user_home)
       end
 
       def vim_home 
@@ -32,6 +42,7 @@ module Vim
         Pathname.new(vim_home.join("bundle"))
       end
 
+
       def autoload_home 
         Pathname.new(vim_home.join("autoload"))
       end
@@ -42,6 +53,10 @@ module Vim
 
       def yaml_path
         @yaml_path ||= File.expand_path("./plugins.yml",File.dirname(__FILE__))
+      end
+
+      def pathogen_vim_path(version="1.2") 
+        vim_jar_lib.join("vim-jar","pathogen","pathogen_v#{version}.vim")
       end
 
 
@@ -62,6 +77,11 @@ your .vim folder is not a git repository.
           FileUtils.mkdir_p(bundle_home) 
           STDOUT.puts "create folder for pathogen in #{bundle_home}"
         end
+      end
+
+      def install_pathogen
+        FileUtils.mkdir_p(autoload_home) if !File.exist?(autoload_home)
+        FileUtils.cp pathogen_vim_path, pathogen_path
       end
     end 
   end

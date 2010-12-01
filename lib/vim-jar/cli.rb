@@ -4,7 +4,6 @@ module Vim
   module Jar 
     class Cli < Thor
       map "-T" => :list
-      PATHOGEN_URL = "http://www.vim.org/scripts/download_script.php?src_id=12116"
 
       desc "init","init environment"
       def init 
@@ -60,7 +59,7 @@ module Vim
         
       end
 
-      private 
+      private
       def config 
         @config ||= Vim::Jar.config
       end
@@ -80,12 +79,7 @@ module Vim
 
       def setup_pathogen
         config = Vim::Jar.config 
-        FileUtils.mkdir_p(config.autoload_home) if !File.exist?(config.autoload_home)
-        install_pathogen(config) 
-      end
-
-      def install_pathogen(config) 
-        system("curl #{PATHOGEN_URL} -o #{config.pathogen_path}")
+        config.install_pathogen
         STDOUT.puts <<-EOF
 
   Pathogen is installed into #{config.pathogen_path}. 

@@ -3,3 +3,4 @@ pkg/*
 .bundle
 *.sw*
 FILES.txt
+.idea

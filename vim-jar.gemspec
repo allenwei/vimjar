@@ -19,9 +19,13 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency('curb')
   s.add_runtime_dependency('thor')
+
   s.add_development_dependency('rspec')
   s.add_development_dependency('rr')
   s.add_development_dependency('fuubar')
+  s.add_development_dependency('aruba')
   s.add_development_dependency('ruby-debug')
+  s.add_development_dependency('cucumber')
+  s.add_development_dependency('autotest')
 
 end
