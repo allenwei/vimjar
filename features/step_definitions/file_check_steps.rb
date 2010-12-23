@@ -3,7 +3,7 @@ Then /^It should install pathogen for me$/ do
 end
 
 Then /^I should not see plugin "([^"]*)" in bundle home$/ do |plugin_name|
-  File.exist?(config.bundle_home.join(plugin_name)).should be true
+  File.exist?(config.bundle_home.join(plugin_name)).should be false
 end
 
 Then /^I should not see plugin "([^"]*)" in \.git\/config$/ do |plugin_name|
