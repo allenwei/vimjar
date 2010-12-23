@@ -68,14 +68,43 @@ describe Vim::Jar::Config do
 
   context ".check" do 
     it "should raise exception if folder check not pass" do 
-      mock(File).exist?(anything) { false }
+      mock(config).check_vim_pathes! { raise Vim::Jar::InitError.new }
       lambda {config.check}.should raise_error Vim::Jar::InitError
     end
 
-    it "should raise exception if .vim is not under git source controller" do 
-      stub(File).exist?(anything) { true }
+    it "should call init_git_repo, setup_pathogen and create_bundle_home" do 
+      mock(config).check_vim_pathes! { }
       mock(config).under_git? { false }
-      lambda {config.check}.should raise_error Vim::Jar::InitError
+      mock(config).has_pathgen? { false }
+      mock(config).has_bundle_home? { false }
+      mock(config).init_git_repo
+      mock(config).setup_pathogen
+      mock(config).create_bundle_home
+      config.check
+    end
+  end
+
+  context ".init_git_repo" do 
+    it "should do system call for 'git init'" do 
+      mock(config).system("git init")
+      mock(STDOUT).puts(anything) 
+      config.init_git_repo
+    end
+  end
+
+  context ".setup_pathogen" do 
+    it "call install_pathogen" do 
+      mock(config).install_pathogen
+      mock(STDOUT).puts(anything) 
+      config.setup_pathogen
+    end
+  end
+
+  context ".create_bundle_home" do 
+    it "should mkdir at bundle_home" do
+      mock(FileUtils).mkdir_p(config.bundle_home) 
+      mock(STDOUT).puts(anything) 
+      config.create_bundle_home
     end
   end
 

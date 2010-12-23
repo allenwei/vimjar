@@ -8,7 +8,6 @@ module Vim
       desc "init","init environment"
       def init 
         check!
-        setup_pathogen unless File.exist?(config.pathogen_path)
         done
       end
 
@@ -73,23 +72,6 @@ module Vim
         end
       end
 
-      def git_init 
-        #TODO will support init git repo 
-      end
-
-      def setup_pathogen
-        config = Vim::Jar.config 
-        config.install_pathogen
-        STDOUT.puts <<-EOF
-
-  Pathogen is installed into #{config.pathogen_path}. 
-
-  NOTICE: you need copy line below into #{config.vimrc_path}.
-
-  call pathogen#runtime_append_all_bundles() 
-
-        EOF
-      end
 
       def done 
         #TODO improve finish message

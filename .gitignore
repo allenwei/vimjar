@@ -4,3 +4,4 @@ pkg/*
 *.sw*
 FILES.txt
 .idea
+/tmp/

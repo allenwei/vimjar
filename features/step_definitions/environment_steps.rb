@@ -19,7 +19,13 @@ end
 Given /^\.vim is git repo$/ do
   FileUtils.mkdir_p config.vim_home
   Dir.chdir(config.vim_home) do 
-    system("git init")
+    `git init > /dev/null`
   end
 end
+
+Given /^a full environment$/ do 
+    Given ".vim and .vimrc"
+    config.check
+end
+
 

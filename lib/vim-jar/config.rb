@@ -59,24 +59,58 @@ module Vim
         vim_jar_lib.join("vim-jar","pathogen","pathogen_v#{version}.vim")
       end
 
+      def has_pathgen?
+        File.exist?(self.pathogen_path)
+      end
+
+      def has_bundle_home?
+        File.exist?(self.bundle_home)
+      end
+
 
       def check 
+        check_vim_pathes!
+        self.init_git_repo unless under_git?
+        self.setup_pathogen unless has_pathgen?
+        self.create_bundle_home unless has_bundle_home?
+      end
+
+      def check_vim_pathes!
         %w[vim_home vimrc_path].each do |method_name|
           path = self.send(method_name)
           raise InitError.new("#{path} doesn't exist") unless File.exist?(path)
         end
-        not_under_git_message = <<-EOF
-your .vim folder is not a git repository. 
+      end
 
-  You can not make use of git submodule to manage your plugins.
-  You need make your .vim to be a git repository.
-  Futher more you can push your git repository to www.github.com.
-        EOF
-        raise InitError.new(not_under_git_message) unless under_git?
-        if !File.exist?(bundle_home)
-          FileUtils.mkdir_p(bundle_home) 
-          STDOUT.puts "create folder for pathogen in #{bundle_home}"
+      def init_git_repo
+        Dir.chdir(self.vim_home) do 
+          message = <<-EOF
+  your .vim folder is not a git repository.  we'll init git repository for you.
+
+    You can make use of git submodule to manage your plugins.
+    Futher more you can push your git repository to www.github.com.
+          EOF
+          STDOUT.puts message
+          system("git init")
         end
+      end
+
+      def create_bundle_home 
+        FileUtils.mkdir_p(bundle_home) 
+        STDOUT.puts "create folder for pathogen in #{bundle_home}"
+      end
+
+      def setup_pathogen
+        self.install_pathogen
+        STDOUT.puts <<-EOF
+
+  Pathogen is installed into #{self.pathogen_path}. 
+
+  NOTICE: you need copy line below into #{self.vimrc_path}.
+
+  call pathogen#runtime_append_all_bundles() 
+
+        EOF
       end
 
       def install_pathogen

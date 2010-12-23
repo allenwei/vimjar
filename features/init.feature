@@ -14,13 +14,13 @@ Feature: Init environment
     Given .vim and .vimrc
     Given .vim is not git repo 
     When I run command "init" 
-    Then I should get .vim is not a git repo error 
+    Then I should get .vim is not a git repo warning 
 
   Scenario: .vim folder is not a git repo
     Given .vim and .vimrc
     Given .vim is not git repo 
     When I run command "init" 
-    Then I should get .vim is not a git repo error  
+    Then I should get .vim is not a git repo warning
 
   Scenario: there is not pathogen.vim in .vim/autoload 
     Given .vim and .vimrc
