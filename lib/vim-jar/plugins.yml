@@ -2671,3 +2671,8 @@
   type: git
   homepage: https://github.com/vim-scripts/VimClojure
   desc: A filetype, syntax and indent plugin for Clojure
+- name: vimblogger_ft
+  url: git://github.com/vim-scripts/vimblogger_ft.git
+  type: git
+  homepage: https://github.com/vim-scripts/vimblogger_ft
+  desc: reStructuredText to Blogger Interface
