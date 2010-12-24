@@ -62,11 +62,20 @@ Roadmap
 * Rank popular plugins  
 * Category plugins
 
+Troubleshooting
+=============
+* Git submodule error - I suggest re-install these plugins
+  Like these 
+
+  `Unable to checkout 'e53a8582a4b1fcb664779bf598de9830cc8d4613' in submodule path 'bundle/vim-ruby'
+   error: More than one value for the key submodule.bundle/rails.url: git://github.com/ujihisa/quickrun.git
+  `
 
 Thanks 
 =============
 
 * Thanks brons_vimtools@rinspin.com port vim plugins to  github 
-* Thanks Vincent help me test this gem
+* Thanks [Vincent](https://github.com/linsong) help me test this gem
+
 
 
