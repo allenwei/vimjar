@@ -1,7 +1,9 @@
 Vim-Jar
 =============
 
-Provide a easy way to manage your plugin use vim plugin pathogen
+Provide a easy way to manage your plugin use vim plugin pathogen.
+
+Get more detail reading my blog post: [use git submodule keep your plugin up to date]:"http://www.allenwei.cn/tips-using-git-submodule-keep-your-plugin-up-to-date/"
 
 Installation
 -----------
@@ -13,28 +15,35 @@ Usage
 -----
 
 Init your environment
+
   `vim-jar init` 
 
 It will check your whether your .vim path is git repo and install pathogen
 
 Install partiqular plugin
+
   `vim-jar install PLUGIN_NAME`
 
 List all installed plguins
+
   `vim-jar list`
 
 List all avaliable plugin
+
   `vim-jar list`
 
 Import plugin to avaliable plugin list
+
   `vim-jar import GITHUB_URL`
 
 It will update your local plugin database, only support github repo now.
 
 Uninstall plugin  
+
   `vim-jar uninstall PLUGIN_NAME`
 
 Help 
+
   `vim-jar -h`
 
 
