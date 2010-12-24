@@ -11,6 +11,13 @@ describe Vim::Jar::Plugin do
     end
   end
 
+  context ".update" do 
+    it "should run command 'git submodule update'" do 
+      mock(Vim::Jar::Plugin).system("git submodule update") 
+      Vim::Jar::Plugin.update
+    end
+  end
+
   context ".exist" do 
     it "should be true if has plugin in @plugins" do 
      Vim::Jar::Plugin.plugins << {"name" => "test" } 

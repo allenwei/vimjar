@@ -7,3 +7,8 @@ Then /^I should see "([^"]*)" in installed list$/ do |plugin_name|
   Then %Q{the stdout should contain "#{plugin_name}"}
 end
 
+
+Then /^I should see update success message$/ do |plugin_name|
+  Then %Q{the stdout should contain "All your plugin is up to date."}
+end
+

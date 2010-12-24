@@ -47,8 +47,17 @@ module Vim
         STDOUT.puts ::Vim::Jar::Plugin.installed.join("\n")
       end
 
+      desc "update", "Update all installed plugin"
+      def update
+        check!
+        if ::Vim::Jar::Plugin.update 
+          STDOUT.puts "All your plugin is up to date."
+        end
+      end
+
       desc "uninstall", "uninstall installed plugin"
       def uninstall(name)
+        check!
         if ::Vim::Jar::Plugin.installed.include?(name)
           ::Vim::Jar::Plugin.uninstall(name)
           STDOUT.puts "plugin #{name} has been already remove from #{config.bundle_home.join(name)}"

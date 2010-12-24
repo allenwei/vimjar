@@ -14,35 +14,39 @@ Installation
 Usage
 -----
 
-###### Init your environment
+### Init your environment
 
   `vim-jar init` 
 
 It will check your whether your .vim path is git repo and install pathogen
 
-###### Install partiqular plugin
+### Install partiqular plugin
 
   `vim-jar install PLUGIN_NAME`
 
-###### List all installed plguins
+### Update all plugins
+
+  `vim-jar update`
+
+### List all installed plguins
 
   `vim-jar list`
 
-###### List all avaliable plugin
+### List all avaliable plugin
 
   `vim-jar list`
 
-###### Import plugin to avaliable plugin list
+### Import plugin to avaliable plugin list
 
   `vim-jar import GITHUB_URL`
 
 It will update your local plugin database, only support github repo now.
 
-###### Uninstall plugin  
+### Uninstall plugin  
 
   `vim-jar uninstall PLUGIN_NAME`
 
-###### Get help 
+### Get help 
 
   `vim-jar -h`
 

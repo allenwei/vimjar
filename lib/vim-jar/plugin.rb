@@ -20,6 +20,12 @@ module Vim
         @plugins
       end
 
+      def self.update 
+        Dir.chdir(config.vim_home) do 
+          system("git submodule update")
+        end
+      end
+
       def self.exist? name
         #OPTIMIZE
         @exist_list ||= {}
