@@ -2676,3 +2676,18 @@
   type: git
   homepage: https://github.com/vim-scripts/vimblogger_ft
   desc: reStructuredText to Blogger Interface
+- name: greplace.vim
+  url: git://github.com/skwp/greplace.vim.git
+  type: git
+  homepage: https://github.com/skwp/greplace.vim
+  desc: Global search and replace for VI
+- name: scss-syntax.vim
+  url: git://github.com/cakebaker/scss-syntax.vim.git
+  type: git
+  homepage: https://github.com/cakebaker/scss-syntax.vim
+  desc: Vim syntax file for scss (Sassy CSS)
+- name: vim-coffee-script
+  url: git://github.com/kchmck/vim-coffee-script.git
+  type: git
+  homepage: https://github.com/kchmck/vim-coffee-script
+  desc: CoffeeScript support for vim
