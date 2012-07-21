@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 require "vim-jar/version"
 
 Gem::Specification.new do |s|
-  s.name        = "vim-jar"
+  s.name        = "vimjar"
   s.version     = Vim::Jar::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["allen wei"]

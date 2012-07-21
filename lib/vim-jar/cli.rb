@@ -78,11 +78,11 @@ module Vim
         #TODO improve finish message
         STDOUT.puts <<-EOF
 
-  Congratulation!  vim-jar already initialized your environment. 
+  Congratulation!  vimjar already initialized your environment. 
 
   Try:
 
-  vim-jar install [PLUGIN_NAME]
+  vimjar install
 
         EOF
       end

@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/allenwei/vim-jar.png)](http://travis-ci.org/allenwei/vim-jar)
+[![Build Status](https://secure.travis-ci.org/allenwei/vimjar.png)](http://travis-ci.org/allenwei/vimjar)
 
 Features
 =============
@@ -12,20 +12,20 @@ Get more detail reading my blog post: [use git submodule keep your plugin up to 
 Installation
 -----------
 
-  `gem install vim-jar`
+  `gem install vimjar`
 
 Usage
 -----
 
 ### Init your environment
 
-  `vim-jar init` 
+  `vimjar init` 
 
 It will check your whether your .vim path is git repo and install pathogen
 
 ### Open BundleFile in Editor 
   
-  `vim-jar edit`
+  `vimjar edit`
 
 
 ### Install plugins by modify .vim/BundleFile
@@ -35,24 +35,24 @@ It will check your whether your .vim path is git repo and install pathogen
 
 ### Install plugins 
 
-  `vim-jar install` or just `vim-jar`
+  `vimjar install` or just `vimjar`
 
 
 ### Update all plugins
 
-  `vim-jar update`
+  `vimjar update`
 
 ### List installed plugin
 
-  `vim-jar installed`
+  `vimjar installed`
 
 ### Uninstall plugin  
 
-  `vim-jar uninstall PLUGIN_NAME`
+  `vimjar uninstall PLUGIN_NAME`
 
 ### Get help 
 
-  `vim-jar -h`
+  `vimjar -h`
 
 Roadmap 
 =============
