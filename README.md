@@ -23,6 +23,11 @@ Usage
 
 It will check your whether your .vim path is git repo and install pathogen
 
+### Open BundleFile in Editor 
+  
+  `vim-jar edit`
+
+
 ### Install plugins by modify .vim/BundleFile
 
     plugin "git://github.com/tpope/vim-fugitive.git"
@@ -30,11 +35,8 @@ It will check your whether your .vim path is git repo and install pathogen
 
 ### Install plugins 
 
-  `vim-jar install
+  `vim-jar install` or just `vim-jar`
 
-### Open BundleFile in Editor 
-  
-  `vim-jar edit`
 
 ### Update all plugins
 
