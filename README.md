@@ -70,9 +70,13 @@ Troubleshooting
 * Git submodule error - I suggest re-install these plugins
   Like these 
 
-  `Unable to checkout 'e53a8582a4b1fcb664779bf598de9830cc8d4613' in submodule path 'bundle/vim-ruby'
-   error: More than one value for the key submodule.bundle/rails.url: git://github.com/ujihisa/quickrun.git
-  `
+  `Unable to checkout 'e53a8582a4b1fcb664779bf598de9830cc8d4613' in submodule path 'bundle/vim-ruby' error: More than one value for the key submodule.bundle/rails.url: git://github.com/ujihisa/quickrun.git`
+
+
+TODO
+===========
+* plugin search
+* install theme
 
 ## Note on Patches/Pull Requests
  

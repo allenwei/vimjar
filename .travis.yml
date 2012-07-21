@@ -1,3 +1,4 @@
+language: ruby
 rvm: 
   - 1.9.3
 # whitelist
@@ -8,4 +9,4 @@ branches:
 notifications:
   email:
     - digruby@gmail.com
-
+script: bundle exec rspec spec
