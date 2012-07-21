@@ -1,6 +1,0 @@
---- 
-- name: vim-rails
-  url: git://github.com/tpope/vim-rails.git
-  type: git
-  homepage: https://github.com/tpope/vim-rails
-  desc: "rails.vim: Ruby on Rails power tools"

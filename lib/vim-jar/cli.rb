@@ -3,44 +3,36 @@ require 'vim-jar'
 module Vim
   module Jar 
     class Cli < Thor
-      map "-T" => :list
+      map "-T" => :installed
+      default_task :install
 
       desc "init","init environment"
       def init 
         check!
         done
+        exit 0
       end
 
-      desc "install NAME", "install plugin"
-      def install(plugin_name)
+      desc "install", "install plugin according to BundleFile"
+      def install
         check!
-        plugin = ::Vim::Jar::Plugin.find(plugin_name)
-        if plugin
-          plugin.install 
+        loader = ::Vim::Jar::Loader.new
+        loader.execute
+      end
+
+      desc "Edit", "open BundleFile in editor"
+      def edit
+        check!
+        editor = [ENV['BUNDLER_EDITOR'], ENV['VISUAL'], ENV['EDITOR']].find{|e| !e.nil? && !e.empty? }
+        if editor
+          command = "#{editor} #{config.bundle_file_path}"
+          success = system(command)
+          raise ::Vim::Jar::InstallError.new "Could not run '#{command}'" unless success
         else
-          STDERR.puts "Can not find plugin '#{plugin_name}'"
-          STDERR.puts "you can run 'vim-jar list' to show all the existing plugins"
-          exit 1
+          ::Vim::Jar::InstallError.new("To open BundleFile, set $EDITOR or $BUNDLER_EDITOR")
         end
       end
-
-      desc "list", "list all avaliable plugins"
-      def list
-        str = ::Vim::Jar::Plugin.plugins.map do |plugin_attr| 
-          "#{plugin_attr['name']}: #{plugin_attr['desc']}"
-        end.join("\n")
-        STDOUT.puts str
-      end
-
-      desc "import", "import plugin info from github.com"
-      def import(github_url)
-        begin 
-          ::Vim::Jar::Importer.import(github_url)
-          STDOUT.puts "'#{github_url}' has import to our local cache"
-        rescue ImportError => e 
-          STDERR.puts "Can not import '#{github_url}', because #{e.message}"
-        end
-      end
+      
 
       desc "installed", "list all installed plugins"
       def installed

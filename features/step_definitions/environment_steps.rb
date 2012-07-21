@@ -24,8 +24,11 @@ Given /^\.vim is git repo$/ do
 end
 
 Given /^a full environment$/ do 
-    Given ".vim and .vimrc"
+    step ".vim and .vimrc"
     config.check
 end
 
 
+Given /^a installed plugin "(.*?)"$/ do |plugin|
+  FileUtils.mkdir_p(config.bundle_home.join(plugin))
+end

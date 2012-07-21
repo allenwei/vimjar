@@ -14,3 +14,7 @@ Then /^I should not see plugin "([^"]*)" in \.gitmodules$/ do |plugin_name|
   File.read(config.gitconfig_file_path).should_not match /#{plugin_name}/
 end
 
+Then /^I should have initial BundleFile$/ do
+  File.exists?(config.bundle_file_path).should eq true
+end
+

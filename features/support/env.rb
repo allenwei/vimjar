@@ -1,8 +1,10 @@
 
 ENV['VIM_JAR_USER_HOME'] = File.expand_path("../../tmp",File.dirname(__FILE__))
+
+ENV['VIM_JAR_TEST'] = "true"
+
 require 'fileutils'
-require 'aruba'
-require 'rr'
+require 'aruba/cucumber'
 require File.expand_path('../../lib/vim-jar', File.dirname(__FILE__))
 require File.expand_path('../../lib/vim-jar/cli', File.dirname(__FILE__))
 

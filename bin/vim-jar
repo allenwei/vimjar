@@ -8,5 +8,3 @@ end
 require 'vim-jar/cli'
 
 Vim::Jar::Cli.start
-
-

@@ -17,15 +17,16 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_runtime_dependency('curb')
   s.add_runtime_dependency('thor')
 
   s.add_development_dependency('rspec')
-  s.add_development_dependency('rr')
   s.add_development_dependency('fuubar')
   s.add_development_dependency('aruba')
-  s.add_development_dependency('ruby-debug')
+  s.add_development_dependency('debugger')
   s.add_development_dependency('cucumber')
-  s.add_development_dependency('autotest')
+  s.add_development_dependency('growl')
+  s.add_development_dependency('rb-fsevent')
+  s.add_development_dependency('guard-rspec', "~> 1.2.0")
+  s.add_development_dependency('guard-cucumber', "~> 1.2.0")
 
 end

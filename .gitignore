@@ -5,3 +5,4 @@ pkg/*
 FILES.txt
 .idea
 /tmp/
+/bundle

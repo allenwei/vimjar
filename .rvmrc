@@ -1,1 +1,1 @@
-rvm ree@vim-jar
+rvm 1.9.3@vim-jar --create

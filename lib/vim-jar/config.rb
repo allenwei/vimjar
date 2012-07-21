@@ -3,8 +3,6 @@ module Vim
     class Config 
       require 'singleton'
       include Singleton
-      
-      PATHOGEN_URL = "http://www.vim.org/scripts/download_script.php?src_id=12116"
 
       def vim_jar_root 
         Pathname.new(File.expand_path("../../",File.dirname(__FILE__)))
@@ -51,28 +49,24 @@ module Vim
         Pathname.new(vim_home.join("autoload",'pathogen.vim'))
       end
 
-      def yaml_path
-        @yaml_path ||= File.expand_path("./plugins.yml",File.dirname(__FILE__))
-      end
-
       def pathogen_vim_path(version="1.2") 
         vim_jar_lib.join("vim-jar","pathogen","pathogen_v#{version}.vim")
       end
 
-      def has_pathgen?
-        File.exist?(self.pathogen_path)
+      def bundle_file_path
+        vim_home.join("BundleFile")
       end
 
-      def has_bundle_home?
-        File.exist?(self.bundle_home)
+      def bundle_template_file_path 
+        vim_jar_lib.join("templates", "BundleFile")
       end
-
 
       def check 
         check_vim_pathes!
         self.init_git_repo unless under_git?
-        self.setup_pathogen unless has_pathgen?
-        self.create_bundle_home unless has_bundle_home?
+        self.setup_pathogen unless File.exist?(self.pathogen_path)
+        self.create_bundle_home unless File.exist?(self.bundle_home)
+        self.init_bundle_file unless File.exists?(self.bundle_file_path)
       end
 
       def check_vim_pathes!
@@ -116,6 +110,16 @@ module Vim
       def install_pathogen
         FileUtils.mkdir_p(autoload_home) if !File.exist?(autoload_home)
         FileUtils.cp pathogen_vim_path, pathogen_path
+      end
+
+      def init_bundle_file
+        FileUtils.cp bundle_template_file_path, bundle_file_path
+        STDOUT.puts <<-EOF
+
+  Writing new BundleFile to #{self.bundle_file_path}. 
+
+  You can add more plugins by modify this file
+        EOF
       end
     end 
   end

@@ -29,3 +29,9 @@ Feature: Init environment
     Then I should get install pathogen notice
     And It should install pathogen for me 
 
+  Scenario: init BundleFile
+    Given .vim and .vimrc
+    And .vim is git repo 
+    When I run command "init" 
+    Then I should have initial BundleFile 
+    And It should get get BundleFile notice

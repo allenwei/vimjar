@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/allenwei/vim-jar.png)](http://travis-ci.org/allenwei/vim-jar)
+
 Vim-Jar
 =============
 
@@ -20,27 +22,25 @@ Usage
 
 It will check your whether your .vim path is git repo and install pathogen
 
-### Install partiqular plugin
+### Install plugins by modify .vim/BundleFile
 
-  `vim-jar install PLUGIN_NAME`
+    plugin "git://github.com/tpope/vim-fugitive.git"
+
+### Install plugins 
+
+  `vim-jar install
+
+### Open BundleFile in Editor 
+  
+  `vim-jar edit`
 
 ### Update all plugins
 
   `vim-jar update`
 
-### List all installed plguins
+### List installed plugin
 
-  `vim-jar list`
-
-### List all avaliable plugin
-
-  `vim-jar list`
-
-### Import plugin to avaliable plugin list
-
-  `vim-jar import GITHUB_URL`
-
-It will update your local plugin database, only support github repo now.
+  `vim-jar installed`
 
 ### Uninstall plugin  
 
@@ -49,7 +49,6 @@ It will update your local plugin database, only support github repo now.
 ### Get help 
 
   `vim-jar -h`
-
 
 Roadmap 
 =============
@@ -71,11 +70,16 @@ Troubleshooting
    error: More than one value for the key submodule.bundle/rails.url: git://github.com/ujihisa/quickrun.git
   `
 
-Thanks 
-=============
+## Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.  Note: the existing tests may fail
+* Commit, do not mess with Rakefile, gemspec or History.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
 
-* Thanks brons_vimtools@rinspin.com port vim plugins to  github 
-* Thanks [Vincent](https://github.com/linsong) help me test this gem
+## Copyright
 
-
-
+Copyright (c) 2012 Allen Wei. See LICENSE for details.
