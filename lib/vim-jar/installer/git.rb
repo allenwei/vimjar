@@ -19,7 +19,10 @@ module Vim
 
         def remove_from_cache(name)
           Dir.chdir(config.vim_home) do
-            system("git rm -r --cached bundle/#{name}")
+            system("git rm -rf --cached bundle/#{name}")
+          end
+          Dir.chdir(config.vim_home) do
+            system("rm -rf bundle/#{name}")
           end
         end
 

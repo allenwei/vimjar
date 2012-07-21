@@ -3,10 +3,17 @@ module Vim
     module Plugin
       autoload :Git, 'vim-jar/plugin/git.rb'
 
+      extend ::Vim::Jar::Installer::Git
+      
+
       def self.update 
         Dir.chdir(config.vim_home) do 
           system("git submodule update")
         end
+      end
+
+      def self.uninstall(name)
+        uninstall_for(name)
       end
 
       def self.installed
