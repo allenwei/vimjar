@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vimjar (0.3.0)
+    vimjar (0.3.1)
       thor
 
 GEM
