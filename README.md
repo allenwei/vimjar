@@ -1,9 +1,11 @@
 [![Build Status](https://secure.travis-ci.org/allenwei/vim-jar.png)](http://travis-ci.org/allenwei/vim-jar)
 
-Vim-Jar
+Features
 =============
 
-Provide a easy way to manage your plugin use vim plugin pathogen.
+* Provide a easy way to manage your plugin use vim plugin pathogen.
+* Leverage git submodule, so you can keep your plugin up to date.
+* Github submodule will make your dotfiles backup easy and fast.
 
 Get more detail reading my blog post: [use git submodule keep your plugin up to date](http://www.allenwei.cn/tips-using-git-submodule-keep-your-plugin-up-to-date)
 
