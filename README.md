@@ -12,8 +12,7 @@ Get more detail reading my blog post: [use git submodule keep your plugin up to 
 Installation
 -----------
 
-    gem install vim-jar
-
+  `gem install vim-jar`
 
 Usage
 -----
@@ -27,6 +26,7 @@ It will check your whether your .vim path is git repo and install pathogen
 ### Install plugins by modify .vim/BundleFile
 
     plugin "git://github.com/tpope/vim-fugitive.git"
+    plugin "git://github.com/tpope/vim-rails.git"
 
 ### Install plugins 
 
