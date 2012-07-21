@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    vim-jar (0.2.0)
+    vimjar (0.2.0)
       thor
 
 GEM
@@ -82,4 +82,4 @@ DEPENDENCIES
   rake
   rb-fsevent
   rspec
-  vim-jar!
+  vimjar!
